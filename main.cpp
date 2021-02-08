@@ -14,8 +14,6 @@
 
 int main(int argc, char **argv) {
 
-  std::string file = "/Users/schuett/Work/zstd_analyzer/large-file.zst";
-
   int fd = open(file.c_str(), O_RDONLY);
 
   if (fd == -1) {
