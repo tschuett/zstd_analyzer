@@ -1,11 +1,13 @@
 # zstd_analyzer
 
 
-
+```shell
 > {repeat 10000 echo some test} > large-file
-> zstd large-file
-> bazel run zstd_analyzer
 
+> zstd large-file
+
+> bazel run zstd_analyzer
+```
 
 
 
