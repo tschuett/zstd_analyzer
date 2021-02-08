@@ -1,0 +1,11 @@
+###############################################################################
+# Common flags that apply to all configurations.
+# Use sparingly for things common to all compilers and platforms.
+###############################################################################
+# Prevent invalid caching if input files are modified during a build.
+build --experimental_guard_against_concurrent_changes
+# Default to optimized builds
+# Override via: "-c dbg" or --compilation_mode=dbg
+#build --compilation_mode=opt
+
+build --cxxopt=-std=c++17 --host_cxxopt=-std=c++17
