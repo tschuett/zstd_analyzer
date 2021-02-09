@@ -6,17 +6,28 @@
 #include <sys/uio.h>
 #include <unistd.h>
 
+#include "llvm/Support/Path.h"
 #include "llvm/Support/xxhash.h"
 
 #include <cstdio>
 #include <cstdlib>
-#include <string>
 
 int main(int argc, char **argv) {
 
-  int fd = open(file.c_str(), O_RDONLY);
+  if (argc not_eq 2) {
+    printf("zstd_analyzer <file>\n");
+    exit(EXIT_FAILURE);
+  }
+
+  if (not llvm::sys::path::is_absolute(argv[1])) {
+      printf("need to provide an absolute path\n");
+      exit(EXIT_FAILURE);
+  }
+
+  int fd = open(argv[1], O_RDONLY);
 
   if (fd == -1) {
+    printf("%s\n", argv[1]);
     perror("open");
     exit(EXIT_FAILURE);
   }
